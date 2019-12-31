@@ -1,7 +1,7 @@
 const config = {
 	host: "localhost",
     user: "root",
-    password: "lixin",
+    password: "admin",
     database: "test",
     port: "3306"
 };
