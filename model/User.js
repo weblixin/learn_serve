@@ -7,10 +7,10 @@ const User = sequelize.define('user', {
 		primaryKey: true
 	},
 	username: Sequelize.STRING(50),
-	// password: {
-	// 	type: Sequelize.STRING(50),
-	// 	default: "admin111"
-	// },
+	password: {
+		type: Sequelize.STRING(50),
+		default: "admin111"
+	},
 	sex: Sequelize.BIGINT,
 	address: Sequelize.STRING(100),
 	birth: Sequelize.STRING(10),
