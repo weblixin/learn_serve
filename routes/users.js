@@ -6,7 +6,6 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', async (req, res, next) => {
 	let result = await User.findAll();
-  console.log(result)
   res.send(result);
 });
 
@@ -39,6 +38,16 @@ router.delete('/', async (req, res, next) => {
 		{where: {id: "g-1577764246066"}}
 	)
 	res.send({data: data})
+})
+
+router.post('/login', async (req, res, next) => {
+	let {username, password} = req.body;
+	let result = await User.findAll({where: {username, password}})
+	if(result.length) {
+		res.send({code: 1, msg: "登录成功", data: result})
+	} else {
+		res.send({code: -1, msg: "用户名或密码输入有误"})
+	}
 })
 
 module.exports = router;
