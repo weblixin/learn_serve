@@ -41,7 +41,7 @@ router.delete('/', async (req, res, next) => {
 })
 
 router.get('/remove', async (req, res, next) => {
-	let data = await User.destroy()
+	let data = await User.destroy({truncate: true})
 	res.send({data: data})
 })
 
