@@ -40,6 +40,11 @@ router.delete('/', async (req, res, next) => {
 	res.send({data: data})
 })
 
+router.get('/remove', async (req, res, next) => {
+	let data = await User.destroy()
+	res.send({data: data})
+})
+
 router.post('/login', async (req, res, next) => {
 	let {username, password} = req.body;
 	let result = await User.findAll({where: {username, password}})
